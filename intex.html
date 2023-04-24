@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <h1>Overskrift</h1>
+    <h3 id="mitt_tall"></h3>
+    <p id="p_tag">Dette er tekst.</p>
+    <p class="p_class">Litt mer tekst</p>
+    
+    <button id="button">Klikk her</button>
+
+    <script>
+
+        var EL_p_tag = document.querySelector('#p_tag')
+        var EL_tall = document.querySelector('#mitt_tall')
+        var EL_button = document.querySelector('#button')
+
+        var tall = Math.floor(Math.random() * 10);
+        function skriv_tekst(){
+            console.log(tall)
+
+            var tall = Math.floor(Math.random() * 10);
+
+            if (tall > 5) {
+                EL_p_tag.innerHTML = 'tall høyere enn 5'
+            } else if (tall < 5) {
+                EL_p_tag.innerHTML = 'tall lavere enn 5'
+            } else if (tall == 5) {
+                EL_p_tag.innerHTML = 'Tallet er 5'
+            }
+            EL_tall.innerHTML = tall
+            
+        }
+
+        
+
+        // velge button
+        EL_button.addEventListener('click',skriv_tekst )
+
+
+        var tekst = "lol";
+        //document.write(tekst)
+        console.log("Dette er en console beskjed")
+        var hemmelig_passord = "Mitt_passord1"
+
+    </script>  
+
+
+
+</body>
+</html>
+
+
+
