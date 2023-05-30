@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--  
+        cookie clicker
+
+        Noe å trykke på - hamster
+        Oppgraderinger - ny hamster, bedre hus til hamsteren.
+        idk
+    -->
+
+    <h4 id= "antallklikk"></h4>
+   
+    
+
+
+
+    <div class="big_div">
+        
+        <div class="hamster_div">
+           <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
+
+        </div>
+
+        <div class="Upgrades">
+
+            <div class="Hatbox">
+                 <p id= "antall_hattklikk"></p>
+                <img id ="hat_box" src ="Hat_box.png" height ="200px" width="200px" />
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+     
+    <script> 
+
+            
+        var timer
+        var hamster_antall = 0
+        var hatt_antall = 0
+
+        var EL_antall_klikk = document.querySelector('#antallklikk')
+        var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
+
+
+        var EL_hamsterbilde = document.querySelector('#hamster1')
+        var EL_most_hamster1 = document.querySelector('#mosthamster_1')
+        var EL_hattbox_bilde = document.querySelector('#hat_box')
+
+        EL_antall_klikk.innerHTML = hamster_antall
+        EL_antall_hatt_klikk.innerHTML = hatt_antall
+
+       
+
+
+
+        function hamsterTimeout(){
+            console.log("timer ferdig")
+           EL_hamsterbilde.height = 400;
+            EL_hamsterbilde.width = 400;
+            EL_hamsterbilde.style.top = 500;
+
+        }
+    
+
+        function click_hamster() {
+            hamster_antall += 1
+            EL_antall_klikk.innerHTML = hamster_antall
+            EL_hamsterbilde.height = 200;
+            EL_hamsterbilde.width = 400;
+            timer = setTimeout(hamsterTimeout,70)
+            //EL_hamsterbilde.style.animation = "squish 1s"
+            
+            //EL_hamsterbilde.style.animationPlayState = "running"
+
+           
+        }
+
+        function myEndFunction(){
+            //EL_hamsterbilde.style.animationPlayState = "paused"
+        }
+
+        EL_hamsterbilde.addEventListener("animationend", myEndFunction)
+        
+        function stop_timer(){
+            clearTimeout(timer)
+
+        }
+
+        function hatTimeout() {
+           
+        }
+
+        function click_hats() {
+            hatt_antall +=1
+            EL_antall_hatt_klikk.innerHTML = hatt_antall
+            timer = setTimeout(hatTimeout,100)
+           
+        }
+
+
+        EL_hamsterbilde.addEventListener('click', click_hamster)
+        EL_hattbox_bilde.addEventListener('click', click_hats)
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
