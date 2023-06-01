@@ -33,7 +33,8 @@
 
             <div class="Hatbox">
                  <p id= "antall_hattklikk"></p>
-                <img id ="hat_box" src ="Hat_box.png" height ="200px" width="200px" />
+                
+                <img id ="hat_box" src="Closed box_png" height ="200px" width="200px" />
             </div>
 
         </div>
@@ -49,9 +50,11 @@
         var timer
         var hamster_antall = 0
         var hatt_antall = 0
+        var price_hats = 50
 
         var EL_antall_klikk = document.querySelector('#antallklikk')
         var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
+        
 
 
         var EL_hamsterbilde = document.querySelector('#hamster1')
@@ -60,6 +63,7 @@
 
         EL_antall_klikk.innerHTML = hamster_antall
         EL_antall_hatt_klikk.innerHTML = hatt_antall
+      
 
        
 
@@ -80,6 +84,9 @@
             EL_hamsterbilde.height = 200;
             EL_hamsterbilde.width = 400;
             timer = setTimeout(hamsterTimeout,70)
+            if (hamster_antall >= price_hats) {
+                
+            }
             //EL_hamsterbilde.style.animation = "squish 1s"
             
             //EL_hamsterbilde.style.animationPlayState = "running"
@@ -99,7 +106,9 @@
         }
 
 
-
+        function changebox1() {
+            EL_hattbox_bilde.src = "Hat_box.png"
+        }
 
         function changeimg1() {
             EL_hamsterbilde.src="Hamster_hat1.png"
@@ -111,11 +120,14 @@
         }
 
         function click_hats() {
-            hatt_antall +=1
-            EL_antall_hatt_klikk.innerHTML = hatt_antall
-            timer = setTimeout(hatTimeout,100)
-            changeimg1()
-           
+            if (hamster_antall >= price_hats) {
+                hatt_antall +=1
+                hamster_antall -= price_hats
+                price_hats *= 2
+                EL_antall_hatt_klikk.innerHTML = hatt_antall
+                timer = setTimeout(hatTimeout,100)
+                changeimg1()
+            }
         }
 
 
