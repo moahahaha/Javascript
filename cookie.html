@@ -26,7 +26,7 @@
         
         <div class="hamster_div">
            <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
-
+            
         </div>
 
         <div class="Upgrades">
@@ -91,12 +91,20 @@
             //EL_hamsterbilde.style.animationPlayState = "paused"
         }
 
-        EL_hamsterbilde.addEventListener("animationend", myEndFunction)
+        //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
         
         function stop_timer(){
             clearTimeout(timer)
 
         }
+
+
+
+
+        function changeimg1() {
+            EL_hamsterbilde.src="Hamster_hat1.png"
+        }
+
 
         function hatTimeout() {
            
@@ -106,6 +114,7 @@
             hatt_antall +=1
             EL_antall_hatt_klikk.innerHTML = hatt_antall
             timer = setTimeout(hatTimeout,100)
+            changeimg1()
            
         }
 
