@@ -34,7 +34,7 @@
             <div class="Hatbox">
                  <p id= "antall_hattklikk"></p>
                 
-                <img id ="hat_box" src="Closed box_png" height ="200px" width="200px" />
+                <img id ="hat_box" src="Closed_box.png" height ="230px" width="200px" />
             </div>
 
         </div>
@@ -50,7 +50,7 @@
         var timer
         var hamster_antall = 0
         var hatt_antall = 0
-        var price_hats = 50
+        var price_hats = 5
 
         var EL_antall_klikk = document.querySelector('#antallklikk')
         var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
@@ -85,7 +85,11 @@
             EL_hamsterbilde.width = 400;
             timer = setTimeout(hamsterTimeout,70)
             if (hamster_antall >= price_hats) {
-                
+                changebox1()
+            }
+
+            else if (hamster_antall <= price_hats) {
+                EL_hattbox_bilde.src="Closed_box.png"
             }
             //EL_hamsterbilde.style.animation = "squish 1s"
             
@@ -107,7 +111,8 @@
 
 
         function changebox1() {
-            EL_hattbox_bilde.src = "Hat_box.png"
+            EL_hattbox_bilde.src="Hat_box.png"
+           
         }
 
         function changeimg1() {
