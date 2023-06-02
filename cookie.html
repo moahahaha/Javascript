@@ -63,13 +63,17 @@
 
        
 
+        function changeimg1(){
+            EL_hamsterbilde.src = "Hamster_hat1.png"
+        }
+
 
 
         function hamsterTimeout(){
             console.log("timer ferdig")
            EL_hamsterbilde.height = 400;
             EL_hamsterbilde.width = 400;
-            EL_hamsterbilde.style.top = 500;
+            //EL_hamsterbilde.style.top = 500;
 
         }
     
@@ -106,6 +110,7 @@
             hatt_antall +=1
             EL_antall_hatt_klikk.innerHTML = hatt_antall
             timer = setTimeout(hatTimeout,100)
+            changeimg1()
            
         }
 
