@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction:column;
 }
-.hatbox {
+.hatbox_div {
     display: flex;
     flex-direction: row;
 }
