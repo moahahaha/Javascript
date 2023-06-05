@@ -26,15 +26,22 @@
         
         <div class="hamster_div">
            <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
-
+            
         </div>
 
         <div class="Upgrades">
 
-            <div class="Hatbox">
+            <div class="hatbox_div">
                  <p id= "antall_hattklikk"></p>
-                <img id ="hat_box" src ="Hat_box.png" height ="200px" width="200px" />
+                
+                <img id ="hat_box" src="Closed_box.png" height ="230px" width="200px" />
             </div>
+
+            <div class = "foodbox_div">
+                <p id= "antall_foodklikk"></p>
+                <img id ="food_box" src="Closed_box.png" height = "230px" width="200px"/>
+                
+            </div>     
 
         </div>
 
@@ -47,26 +54,88 @@
 
             
         var timer
+
         var hamster_antall = 0
         var hatt_antall = 0
+        var food_antall = 0
+
+        var price_hats = 5
+        var price_food = 10
 
         var EL_antall_klikk = document.querySelector('#antallklikk')
         var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
+        var EL_antall_food_klikk = document.querySelector('#antall_foodklikk')
 
 
         var EL_hamsterbilde = document.querySelector('#hamster1')
         var EL_most_hamster1 = document.querySelector('#mosthamster_1')
+
         var EL_hattbox_bilde = document.querySelector('#hat_box')
+        var EL_foodbox_bilde = document.querySelector('#food_box')
 
         EL_antall_klikk.innerHTML = hamster_antall
         EL_antall_hatt_klikk.innerHTML = hatt_antall
+        EL_antall_food_klikk.innerHTML = food_antall
+      
 
        
 
-        function changeimg1(){
-            EL_hamsterbilde.src = "Hamster_hat1.png"
+        function changeimg_hat1(){
+            if (food_antall == 0) {
+                if (hatt_antall == 1) {
+                    EL_hamsterbilde.src = "Hamster_hat1.png"}
+                if (hatt_antall ==2) {
+                    EL_hamsterbilde.src = "Hamster_hat2.png"
+                }
+            }
+
+            else if (food_antall == 1) {
+                if(hatt_antall == 1) {
+                    EL_hamsterbilde.src = "Hamster_green_hat1.png"}
+                if (hatt_antall == 2) {
+                    EL_hamsterbilde.src = "Hamster_green_hat2.png"}
+                
+            }
+
+            if (food_antall == 2) {
+                if(hatt_antall == 1){
+                    EL_hamsterbilde.src = "Hamster_pink_hat1.png"}
+                if(hatt_antall == 2){
+                    EL_hamsterbilde.src = "Hamster_pink_hat2.png"}
+            }
         }
 
+        function changeimg_food1(){
+            if (hatt_antall == 0) {
+                if (food_antall == 1) {
+                    EL_hamsterbilde.src = "Hamster_green.png"}
+                if (food_antall == 2) {
+                    EL_hamsterbilde.src = "Hamster_pink.png"}
+            }
+
+            if (hatt_antall == 1) {
+                if (food_antall == 1) {
+                    EL_hamsterbilde.src = "Hamster_green_hat1.png"}
+                if (food_antall == 2){
+                    EL_hamsterbilde.src = "Hamster_pink_hat1.png"}
+            }
+
+            if (hatt_antall == 2) {
+                if (food_antall == 1)
+                    EL_hamsterbilde.src = "Hamster_green_hat2_png"}
+                if (food_antall == 2) {
+                    EL_hamsterbilde.src = "Hamster_pink_hat2_png"}
+        }
+
+
+        function changebox1() {
+            EL_hattbox_bilde.src="Hat_box.png"
+                
+        }
+
+        function changebox2() {
+            EL_foodbox_bilde.src="food_box.png"
+        }
 
 
         function hamsterTimeout(){
@@ -76,7 +145,18 @@
             //EL_hamsterbilde.style.top = 500;
 
         }
-    
+
+        function hatTimeout() {
+           
+        }
+        function foodTimeout() {
+
+        }
+        function stop_timer(){
+            clearTimeout(timer)
+        }
+
+
 
         function click_hamster() {
             hamster_antall += 1
@@ -84,40 +164,80 @@
             EL_hamsterbilde.height = 200;
             EL_hamsterbilde.width = 400;
             timer = setTimeout(hamsterTimeout,70)
+            
+            if (hamster_antall >= price_hats) {
+                changebox1()
+            }
+
+            if (hamster_antall >= price_food) {
+                changebox2()
+            }
+
+
+            if (hamster_antall <= price_hats) {
+                EL_hattbox_bilde.src="Closed_box.png"
+            }
+
+            if (hamster_antall <= price_food) {
+                EL_foodbox_bilde.src="Closed_box.png"
+            }
+            
+            
+
+
             //EL_hamsterbilde.style.animation = "squish 1s"
             
             //EL_hamsterbilde.style.animationPlayState = "running"
-
-           
         }
+
+
+        function click_hats() {
+            EL_antall_hatt_klikk.innerHTML = hatt_antall
+            timer = setTimeout(hatTimeout,100)
+           
+
+            if (hamster_antall >= price_hats) {
+                hatt_antall +=1
+                hamster_antall -= price_hats
+                price_hats *= 2
+                EL_antall_hatt_klikk.innerHTML = hatt_antall
+                timer = setTimeout(hatTimeout,100)
+                changeimg_hat1()  
+            }
+        }
+
+        function click_foods() {
+            EL_antall_food_klikk.innerHTML = food_antall
+            timer = setTimeout(foodTimeout,100)
+
+            if (hamster_antall >= price_food) {
+                food_antall += 1
+                hamster_antall -= price_food
+                price_food *= 2
+                EL_antall_food_klikk.innerHTML = food_antall
+                changeimg_food1()
+            }
+        }
+
 
         function myEndFunction(){
             //EL_hamsterbilde.style.animationPlayState = "paused"
         }
 
-        EL_hamsterbilde.addEventListener("animationend", myEndFunction)
+        //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
         
-        function stop_timer(){
-            clearTimeout(timer)
+   
 
-        }
 
-        function hatTimeout() {
-           
-        }
+       
 
-        function click_hats() {
-            hatt_antall +=1
-            EL_antall_hatt_klikk.innerHTML = hatt_antall
-            timer = setTimeout(hatTimeout,100)
-            changeimg1()
-           
-        }
+
 
 
         EL_hamsterbilde.addEventListener('click', click_hamster)
+        EL_foodbox_bilde.addEventListener('click', click_foods )
         EL_hattbox_bilde.addEventListener('click', click_hats)
-
+        
 
 
     </script>
