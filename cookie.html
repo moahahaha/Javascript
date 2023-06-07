@@ -26,7 +26,7 @@
         
         <div class="hamster_div">
            <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
-            
+           <!--<img id ="Hamster_water" src="Waterbottle.png" height="400px" width="400px" /> -->
         </div>
 
         <div class="Upgrades">
@@ -47,6 +47,7 @@
                 <img id = "box_items" src="Closed_box.png" height = "230px" width="200px"/>
             </div>
 
+
         </div>
 
 
@@ -63,8 +64,8 @@
         var hatt_antall = 0
         var food_antall = 0
 
-        var price_hats = 5
-        var price_food = 5
+        var price_hats = 10
+        var price_food = 10
 
         var EL_antall_klikk = document.querySelector('#antallklikk')
         var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
@@ -76,6 +77,8 @@
 
         var EL_hattbox_bilde = document.querySelector('#hat_box')
         var EL_foodbox_bilde = document.querySelector('#food_box')
+
+        var EL_waterbottle_bilde = document.querySelector('#hamster_water')
 
         EL_antall_klikk.innerHTML = hamster_antall
         EL_antall_hatt_klikk.innerHTML = hatt_antall
@@ -122,6 +125,16 @@
                     EL_hamsterbilde.src = "Cake_hamster_hat3.png"}
             }
 
+            if (food_antall == 4) {
+                if(hatt_antall == 1) {
+                    EL_hamsterbilde.src = "Hamster_carrot_hat1.png"}
+                if (hatt_antall == 2) { 
+                    EL_hamsterbilde.src = "Hamster_carrot_hat2.png"}
+                if (hatt_antall == 3) {
+                    EL_hamsterbilde.src = "Hamster_carrot_hat3.png"
+                }
+            }
+
         }
 
         function changeimg_food1(){
@@ -163,7 +176,6 @@
         }
 
 
-
         function changebox1() {
             EL_hattbox_bilde.src="Hat_box.png"
                 
@@ -195,6 +207,7 @@
 
 
         function click_hamster() {
+            
             hamster_antall += 1
             EL_antall_klikk.innerHTML = hamster_antall
             EL_hamsterbilde.height = 200;
