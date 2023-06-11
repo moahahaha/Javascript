@@ -16,17 +16,24 @@
         idk
     -->
 
-    <h4 id= "antallklikk"></h4>
-   
     
-
+    <div id="tekst_div" >
+        <img id="hamserrr" src="HAMSTERR.png" height="40" width="40" />
+        <h4 id= "antallklikk"> </h4>
+    </div>
 
 
     <div class="big_div">
         
-        <div class="hamster_div">
-           <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
-           <!--<img id ="Hamster_water" src="Waterbottle.png" height="400px" width="400px" /> -->
+        <div class="medium_div">
+            
+            <div class="water_div">
+                <img id ="Hamster_water" src="Waterbottle.png" height="150px" width="100px" style="visibility: hidden;"/> 
+            </div>
+
+            <div class="hamster_div"> 
+                <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
+            </div>
         </div>
 
         <div class="Upgrades">
@@ -44,6 +51,7 @@
             </div>   
             
             <div class = "box_with_items">
+                <p id= "antall_itemsklikk"></p>
                 <img id = "box_items" src="Closed_box.png" height = "230px" width="200px"/>
             </div>
 
@@ -63,13 +71,16 @@
         var hamster_antall = 0
         var hatt_antall = 0
         var food_antall = 0
+        var items_antall = 0
 
         var price_hats = 10
         var price_food = 10
+        var price_items = 10
 
         var EL_antall_klikk = document.querySelector('#antallklikk')
         var EL_antall_hatt_klikk = document.querySelector('#antall_hattklikk')
         var EL_antall_food_klikk = document.querySelector('#antall_foodklikk')
+        var EL_antall_items_klikk = document.querySelector('#antall_itemsklikk')
 
 
         var EL_hamsterbilde = document.querySelector('#hamster1')
@@ -77,9 +88,11 @@
 
         var EL_hattbox_bilde = document.querySelector('#hat_box')
         var EL_foodbox_bilde = document.querySelector('#food_box')
+        var EL_itemsbox_bilde = document.querySelector('#box_items')
 
-        var EL_waterbottle_bilde = document.querySelector('#hamster_water')
+        var image = document.getElementById('Hamster_water')
 
+        EL_antall_items_klikk.innerHTML = items_antall
         EL_antall_klikk.innerHTML = hamster_antall
         EL_antall_hatt_klikk.innerHTML = hatt_antall
         EL_antall_food_klikk.innerHTML = food_antall
@@ -175,6 +188,14 @@
             }
         }
 
+        function changeing_items1() {
+            if (items_antall == 1) {
+                image.style.visibility = "visible";
+            }
+        }
+
+
+
 
         function changebox1() {
             EL_hattbox_bilde.src="Hat_box.png"
@@ -185,6 +206,9 @@
             EL_foodbox_bilde.src="food_box.png"
         }
 
+        function changebox3() {
+            EL_itemsbox_bilde.src="Items_box.png"
+        }
 
         function hamsterTimeout(){
             console.log("timer ferdig")
@@ -200,6 +224,10 @@
         function foodTimeout() {
 
         }
+        function itemsTimeout() {
+
+        }
+
         function stop_timer(){
             clearTimeout(timer)
         }
@@ -207,6 +235,7 @@
 
 
         function click_hamster() {
+            
             
             hamster_antall += 1
             EL_antall_klikk.innerHTML = hamster_antall
@@ -222,6 +251,9 @@
                 changebox2()
             }
 
+            if (hamster_antall >= price_items) {
+                changebox3()
+            }
 
             if (hamster_antall <= price_hats) {
                 EL_hattbox_bilde.src="Closed_box.png"
@@ -229,6 +261,10 @@
 
             if (hamster_antall <= price_food) {
                 EL_foodbox_bilde.src="Closed_box.png"
+            }
+
+            if (hamster_antall <= price_items) {
+                EL_itemsbox_bilde.src="Closed_box.png"
             }
             
             //EL_hamsterbilde.style.animation = "squish 1s"
@@ -265,6 +301,23 @@
             }
         }
 
+        function click_items() {
+            EL_antall_items_klikk.innerHTML = items_antall
+            timer = setTimeout(itemsTimeout,100)
+
+            if (hamster_antall >= price_food) {
+                items_antall += 1
+                hamster_antall -= price_items
+                price_items *= 2
+                EL_antall_items_klikk.innerHTML = items_antall
+                changeing_items1()
+            }
+            
+            
+            
+        }
+
+
 
         function myEndFunction(){
             //EL_hamsterbilde.style.animationPlayState = "paused"
@@ -279,7 +332,7 @@
 
 
 
-
+        EL_itemsbox_bilde.addEventListener('click', click_items)
         EL_hamsterbilde.addEventListener('click', click_hamster)
         EL_foodbox_bilde.addEventListener('click', click_foods )
         EL_hattbox_bilde.addEventListener('click', click_hats)

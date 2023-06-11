@@ -1,11 +1,21 @@
 body {
     background-color: rgb(251, 235, 216);
 }
+.tekst_div {
+    display: flex;
+    flex-direction: row;
+}
+
 
 .big_div {
     height: 100%;
     width: 100%;
     margin:0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.medium_div{
     display: flex;
     flex-direction: row;
 }
@@ -17,6 +27,12 @@ body {
     
 }
 
+.water_div {
+    height:100%;
+    width: 100%;
+    margin-top: 100px;
+
+}
 
 .upgrades{
     display: flex;
