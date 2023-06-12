@@ -25,17 +25,41 @@ body {
     flex-direction: row;
 }
 
+.water_div {
+    height:100%;
+    width: 100px;
+}
+
 .hamster_div {
     height:500px;
-    width:100%;
+    width:500px;
     display: flex;
-    
+    position: relative;
+ 
     
 }
 
+#hamster_wheel {
+    position:absolute;
+    z-index: 1;
+    top: 10px;
+    left:-130px;
+    margin-top:60px;
+    
+
+}
+
+#hamster1 {
+    position: absolute;
+    z-index: 2;
+    left:-180px;
+}
+
 .picture {
-    margin-right: 100px;
+    margin-right: 120px;
     margin-top:50px;
+    text-align: center;
+    
 }
 
 .water_div {
@@ -52,13 +76,16 @@ body {
     flex-direction:column;
     margin-right: 10px;
     margin-left:70%;
+    position:relative
 }
+
 .hatbox_div {
     display: flex;
     flex-direction: row;
     margin-top:50px;
     height:100px;
     width:100px;
+    right: 0;
 }
 
 
@@ -68,6 +95,7 @@ body {
     width:100px;
     display: flex;
     flex-direction: row;
+    right: 0;
 }
 
 .itemsbox_div {
@@ -77,6 +105,7 @@ body {
     width:100px;
     display: flex;
     flex-direction: row;
+    right: 0;
 }
 
 
@@ -91,6 +120,7 @@ body {
    animation: squish 1s alternate;
    animation-iteration-count: 2;
    animation-play-state: paused;
+
 }
 
 

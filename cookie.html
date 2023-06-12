@@ -33,14 +33,17 @@
         <div class="medium_div">
             
             <div class="water_div">
-                <img id ="Hamster_water" src="Waterbottle.png" height="150px" width="100px" style="visibility: hidden;"/> 
+                <img id ="Hamster_water" src="Waterbottle.png" height="230px" width="120px" style="visibility: hidden;"/> 
             </div>
 
             <div class="hamster_div"> 
+                <img id = "hamster_wheel" src ="hamster_wheel.png" height="400" width="350" style="visibility: hidden;"/>
                 <img id ="hamster1" src="HAMSTERR.png" height="300px" width="300px" />
-                <div class="picture">
-                    <img class="family_picture" src="Family_picture.png" height="100" width="150" style="visibility: hidden;" />
-                </div>
+                
+            </div>
+
+            <div class="picture">
+                <img id="family_picture" src="Family_picture.png" height="150" width="200" style="visibility: hidden;" />
             </div>
         </div>
 
@@ -212,13 +215,17 @@
         }
 
         function changeing_items1() {
-            if (items_antall == 1) {
+            if (items_antall >= 1) {
                 hamster_water_pic.style.visibility = "visible";
+            } else {
+                hamster_water_pic.style.visibility = "hidden";
             }
-            if (items_antall == 2) {
+            if (items_antall >= 2) {
                 family_pic.style.visibility = "visible";
+            } else {
+                family_pic.style.visibility = "hidden";
             }
-        }
+            }
 
         function changebox1() {
             EL_hattbox_bilde.src="Hat_box.png";
@@ -403,8 +410,8 @@
             } else if (items_antall !== 1 && bonusInterval) {
                 stopBonusInterval();
             }
-
-
+         
+           
             if (hamster_antall >= price_hats) {
                 changebox1()
             }
