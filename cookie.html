@@ -365,13 +365,21 @@
         }
 
 
-
         function myEndFunction(){
             //EL_hamsterbilde.style.animationPlayState = "paused"
+            
         }
 
         //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
+       
         
+        function items_bonus1() {
+            
+            hamster_antall += 1
+            
+            
+        }
+
    
         function update_hamster(){
             EL_antall_klikk.innerHTML = hamster_antall
@@ -382,7 +390,10 @@
             EL_price_food.innerHTML = price_food
             EL_price_hats.innerHTML = price_hats
 
-            
+            if (items_antall == 1 ) {
+                
+                setInterval(items_bonus1, 1000)
+            }
 
             if (hamster_antall >= price_hats) {
                 changebox1()
