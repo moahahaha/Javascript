@@ -337,9 +337,11 @@
                 hamster_antall -= price_hats
                 price_hats *= 2
                 EL_antall_hatt_klikk.innerHTML = hatt_antall
+                
                 timer = setTimeout(hatTimeout,100)
                 changeimg_hat1()  
             }
+     
         }
 
         function click_foods() {
@@ -367,7 +369,7 @@
             if (hamster_antall >= price_items) {
                 items_antall += 1
                 hamster_antall -= price_items
-                price_items *= 2
+                price_items *= 3
                 EL_price_items.innerHTML = price_items
                 EL_antall_items_klikk.innerHTML = items_antall
                 changeing_items1()
@@ -404,7 +406,7 @@
         let bonusInterval2;
 
         function items_bonus2() {
-            hamster_antall += 2  
+            hamster_antall += 3
             
         }
 
@@ -420,7 +422,7 @@
         let bonusInterval3;
 
         function items_bonus3() {
-            hamster_antall += 3 
+            hamster_antall += 6 
             
         }
 
