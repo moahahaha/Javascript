@@ -17,9 +17,14 @@
     -->
 
     
-    <div id="tekst_div" >
-        <img id="hamserrr" src="HAMSTERR.png" height="40" width="40" />
-        <h4 id= "antallklikk"> </h4>
+    <div class="small_div" >
+        <div class="smallhamster_div">
+            
+            <img class="hamserrr" src="HAMSTERR.png" height="60" width="60" />
+        </div>
+        <div class="antall_klikk_div">
+            <h2 id= "antallklikk"> </h2>
+        </div>
     </div>
 
 
@@ -32,27 +37,35 @@
             </div>
 
             <div class="hamster_div"> 
-                <img id ="hamster1" src="HAMSTERR.png" height="400px" width="400px" />
+                <img id ="hamster1" src="HAMSTERR.png" height="300px" width="300px" />
+                <div class="picture">
+                    <img class="family_picture" src="Family_picture.png" height="100" width="150" style="visibility: hidden;" />
+                </div>
             </div>
         </div>
 
         <div class="Upgrades">
 
             <div class="hatbox_div">
-                 <p id= "antall_hattklikk"></p>
-                
-                <img id ="hat_box" src="Closed_box.png" height ="230px" width="200px" />
+                 <p id= "antall_hattklikk" style="visibility: hidden;"></p>
+                 <p>Price:</p>
+                 <p id="price_hat_text"></p>
+                <img id ="hat_box" src="Closed_box.png" height ="100px" width="100px" />
             </div>
 
             <div class = "foodbox_div">
-                <p id= "antall_foodklikk"></p>
-                <img id ="food_box" src="Closed_box.png" height = "230px" width="200px"/>
+                <p id= "antall_foodklikk" style="visibility: hidden;"></p>
+                <p>Price:</p>
+                <p id="price_food_text"></p>
+                <img id ="food_box" src="Closed_box.png" height = "100px" width="100px"/>
                 
             </div>   
             
-            <div class = "box_with_items">
-                <p id= "antall_itemsklikk"></p>
-                <img id = "box_items" src="Closed_box.png" height = "230px" width="200px"/>
+            <div class = "itemsbox_div">
+                <p id= "antall_itemsklikk" style="visibility: hidden;"></p>
+                <p>Price:</p>
+                <p id="price_items_text"></p>
+                <img id = "box_items" src="Closed_box.png" height = "100px" width="100px"/>
             </div>
 
 
@@ -73,6 +86,8 @@
         var food_antall = 0
         var items_antall = 0
 
+        var upgrades_total = 0 
+
         var price_hats = 10
         var price_food = 10
         var price_items = 10
@@ -82,6 +97,9 @@
         var EL_antall_food_klikk = document.querySelector('#antall_foodklikk')
         var EL_antall_items_klikk = document.querySelector('#antall_itemsklikk')
 
+        var EL_price_items = document.querySelector('#price_items_text')
+        var EL_price_food = document.querySelector('#price_food_text')
+        var EL_price_hats = document.querySelector('#price_hat_text')
 
         var EL_hamsterbilde = document.querySelector('#hamster1')
         var EL_most_hamster1 = document.querySelector('#mosthamster_1')
@@ -90,7 +108,12 @@
         var EL_foodbox_bilde = document.querySelector('#food_box')
         var EL_itemsbox_bilde = document.querySelector('#box_items')
 
-        var image = document.getElementById('Hamster_water')
+        var hamster_water_pic = document.getElementById('Hamster_water')
+        var family_pic = document.getElementById('family_picture')
+
+        EL_price_items.innerHTML = price_items
+        EL_price_food.innerHTML = price_food
+        EL_price_hats.innerHTML = price_hats
 
         EL_antall_items_klikk.innerHTML = items_antall
         EL_antall_klikk.innerHTML = hamster_antall
@@ -190,30 +213,35 @@
 
         function changeing_items1() {
             if (items_antall == 1) {
-                image.style.visibility = "visible";
+                hamster_water_pic.style.visibility = "visible";
+            }
+            if (items_antall == 2) {
+                family_pic.style.visibility = "visible";
             }
         }
 
-
-
-
         function changebox1() {
-            EL_hattbox_bilde.src="Hat_box.png"
+            EL_hattbox_bilde.src="Hat_box.png";
+            
                 
         }
 
         function changebox2() {
-            EL_foodbox_bilde.src="food_box.png"
+         
+            EL_foodbox_bilde.src="food_box.png";
+            
+
         }
 
         function changebox3() {
-            EL_itemsbox_bilde.src="Items_box.png"
+            EL_itemsbox_bilde.src="Items_box.png";
+            
         }
 
         function hamsterTimeout(){
             console.log("timer ferdig")
-           EL_hamsterbilde.height = 400;
-            EL_hamsterbilde.width = 400;
+           EL_hamsterbilde.height = 300;
+            EL_hamsterbilde.width = 300;
             //EL_hamsterbilde.style.top = 500;
 
         }
@@ -236,13 +264,126 @@
 
         function click_hamster() {
             
-            
-            hamster_antall += 1
+            if (upgrades_total == 0) {
+                hamster_antall += 1}
+            if (upgrades_total == 1) {
+                hamster_antall += 2}
+            if (upgrades_total == 2) {
+                hamster_antall += 3}
+            if (upgrades_total == 3) {
+                hamster_antall += 4}
+            if (upgrades_total == 4) {
+                hamster_antall += 5}
+            if (upgrades_total == 5) {
+                hamster_antall += 6}
+            if (upgrades_total == 6) {
+                hamster_antall += 7}
+            if (upgrades_total == 7) {
+                hamster_antall += 8}
+            if (upgrades_total == 8) {
+                hamster_antall += 9}
+            if (upgrades_total == 9) {
+                hamster_antall += 10}
+            if (upgrades_total == 10) {
+                hamster_antall += 11}
+            if (upgrades_total == 11) {
+                hamster_antall += 12}
+            if (upgrades_total == 12) {
+                hamster_antall += 13}
+            if (upgrades_total == 13) {
+                hamster_antall += 14}
+            if (upgrades_total == 14) {
+                hamster_antall += 15}
+            if (upgrades_total == 15) {
+                hamster_antall += 16}
+            if (upgrades_total == 16) {
+                hamster_antall += 17}
+
             EL_antall_klikk.innerHTML = hamster_antall
-            EL_hamsterbilde.height = 200;
-            EL_hamsterbilde.width = 400;
+            EL_hamsterbilde.height = 150;
+            EL_hamsterbilde.width = 300;
             timer = setTimeout(hamsterTimeout,70)
             
+            //EL_hamsterbilde.style.animation = "squish 1s"
+            
+            //EL_hamsterbilde.style.animationPlayState = "running"
+        }
+
+
+        function click_hats() {
+            EL_antall_hatt_klikk.innerHTML = hatt_antall
+            EL_price_hats.innerHTML = price_hats
+            timer = setTimeout(hatTimeout,100)
+            
+           
+
+            if (hamster_antall >= price_hats) {
+                EL_price_hats.innerHTML = price_hats
+                upgrades_total += 1
+                hatt_antall +=1
+                hamster_antall -= price_hats
+                price_hats *= 2
+                EL_antall_hatt_klikk.innerHTML = hatt_antall
+                timer = setTimeout(hatTimeout,100)
+                changeimg_hat1()  
+            }
+        }
+
+        function click_foods() {
+            EL_antall_food_klikk.innerHTML = food_antall
+            EL_price_food.innerHTML = price_food
+        
+            timer = setTimeout(foodTimeout,100)
+
+            if (hamster_antall >= price_food) {
+                EL_price_food.innerHTML = price_food
+                upgrades_total += 1
+                food_antall += 1
+                hamster_antall -= price_food
+                price_food *= 2
+                EL_antall_food_klikk.innerHTML = food_antall
+                changeimg_food1()
+            }
+        }
+
+        function click_items() {
+            EL_price_items.innerHTML = price_items
+            EL_antall_items_klikk.innerHTML = items_antall
+            timer = setTimeout(itemsTimeout,100)
+
+            if (hamster_antall >= price_food) {
+                items_antall += 1
+                hamster_antall -= price_items
+                price_items *= 2
+                EL_price_items.innerHTML = price_items
+                EL_antall_items_klikk.innerHTML = items_antall
+                changeing_items1()
+            }
+            
+            
+            
+        }
+
+
+
+        function myEndFunction(){
+            //EL_hamsterbilde.style.animationPlayState = "paused"
+        }
+
+        //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
+        
+   
+        function update_hamster(){
+            EL_antall_klikk.innerHTML = hamster_antall
+            EL_antall_items_klikk.innerHTML = items_antall
+            EL_antall_food_klikk.innerHTML = food_antall
+            EL_antall_hatt_klikk.innerHTML = hatt_antall
+            EL_price_items.innerHTML = price_items
+            EL_price_food.innerHTML = price_food
+            EL_price_hats.innerHTML = price_hats
+
+            
+
             if (hamster_antall >= price_hats) {
                 changebox1()
             }
@@ -266,69 +407,9 @@
             if (hamster_antall <= price_items) {
                 EL_itemsbox_bilde.src="Closed_box.png"
             }
-            
-            //EL_hamsterbilde.style.animation = "squish 1s"
-            
-            //EL_hamsterbilde.style.animationPlayState = "running"
         }
 
-
-        function click_hats() {
-            EL_antall_hatt_klikk.innerHTML = hatt_antall
-            timer = setTimeout(hatTimeout,100)
-           
-
-            if (hamster_antall >= price_hats) {
-                hatt_antall +=1
-                hamster_antall -= price_hats
-                price_hats *= 2
-                EL_antall_hatt_klikk.innerHTML = hatt_antall
-                timer = setTimeout(hatTimeout,100)
-                changeimg_hat1()  
-            }
-        }
-
-        function click_foods() {
-            EL_antall_food_klikk.innerHTML = food_antall
-            timer = setTimeout(foodTimeout,100)
-
-            if (hamster_antall >= price_food) {
-                food_antall += 1
-                hamster_antall -= price_food
-                price_food *= 2
-                EL_antall_food_klikk.innerHTML = food_antall
-                changeimg_food1()
-            }
-        }
-
-        function click_items() {
-            EL_antall_items_klikk.innerHTML = items_antall
-            timer = setTimeout(itemsTimeout,100)
-
-            if (hamster_antall >= price_food) {
-                items_antall += 1
-                hamster_antall -= price_items
-                price_items *= 2
-                EL_antall_items_klikk.innerHTML = items_antall
-                changeing_items1()
-            }
-            
-            
-            
-        }
-
-
-
-        function myEndFunction(){
-            //EL_hamsterbilde.style.animationPlayState = "paused"
-        }
-
-        //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
-        
-   
-
-
-       
+       setInterval(update_hamster, 10)
 
 
 

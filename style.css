@@ -1,12 +1,17 @@
 body {
     background-color: rgb(251, 235, 216);
 }
-.tekst_div {
+.small_div {
+    height: 50px;
+    width:50px;
     display: flex;
     flex-direction: row;
+   
 }
 
-
+.smallhamster_div {
+    margin-top: 4px;
+}
 .big_div {
     height: 100%;
     width: 100%;
@@ -25,6 +30,12 @@ body {
     width:100%;
     display: flex;
     
+    
+}
+
+.picture {
+    margin-right: 100px;
+    margin-top:50px;
 }
 
 .water_div {
@@ -35,17 +46,38 @@ body {
 }
 
 .upgrades{
+    height:100%;
+    width:100%;
     display: flex;
     flex-direction:column;
+    margin-right: 10px;
+    margin-left:70%;
 }
 .hatbox_div {
     display: flex;
     flex-direction: row;
+    margin-top:50px;
+    height:100px;
+    width:100px;
 }
 
 
+.foodbox_div {
+    margin-top:50px;
+    height:100px;
+    width:100px;
+    display: flex;
+    flex-direction: row;
+}
 
-
+.itemsbox_div {
+    margin-top:50px;
+    margin-bottom: 10px;
+    height:100px;
+    width:100px;
+    display: flex;
+    flex-direction: row;
+}
 
 
 
