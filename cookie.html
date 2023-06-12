@@ -351,7 +351,7 @@
             EL_antall_items_klikk.innerHTML = items_antall
             timer = setTimeout(itemsTimeout,100)
 
-            if (hamster_antall >= price_food) {
+            if (hamster_antall >= price_items) {
                 items_antall += 1
                 hamster_antall -= price_items
                 price_items *= 2
@@ -372,14 +372,22 @@
 
         //EL_hamsterbilde.addEventListener("animationend", myEndFunction)
        
-        
+        let bonusInterval;
+
         function items_bonus1() {
-            
-            hamster_antall += 1
-            
+            hamster_antall += 1  
             
         }
 
+        function startBonusInterval() {
+            items_bonus1();
+            bonusInterval = setInterval(items_bonus1, 1000);
+        }
+
+        function stopBonusInterval() {
+            clearInterval(bonusInterval);
+        }
+        
    
         function update_hamster(){
             EL_antall_klikk.innerHTML = hamster_antall
@@ -390,10 +398,12 @@
             EL_price_food.innerHTML = price_food
             EL_price_hats.innerHTML = price_hats
 
-            if (items_antall == 1 ) {
-                
-                setInterval(items_bonus1, 1000)
+            if (items_antall === 1 && !bonusInterval) {
+                startBonusInterval();
+            } else if (items_antall !== 1 && bonusInterval) {
+                stopBonusInterval();
             }
+
 
             if (hamster_antall >= price_hats) {
                 changebox1()
